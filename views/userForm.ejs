@@ -1,7 +1,43 @@
+<%- include("layouts/header") -%>
 <form action="/saveUser"  method="POST">  
+<div class="hero max-h-screen bg-backg">
+    
+    <div class="hero-content flex-col justify-center mt-11">
+      <div class="card flex w-max max-w-screen-lg shadow-2xl bg-white">
+
+        <div class="card-body">
+            <h1 class="text-xl font-bold text-center">Create User</h1>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text text-slate-500">Firstname</span>
+            </label>
+            <input type="text" placeholder="firstname" class="bg-slate-200 input input-bordered" name="firstname" required />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text text-slate-500">Lastname</span>
+            </label>
+            <input type="text" placeholder="lastname" class="bg-slate-200 input input-bordered" name="lastname" required/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text text-slate-500">Email</span>
+            </label>
+            <input type="email" placeholder="email" class="bg-slate-200 input input-bordered" name="email" required/>
+          </div>
+          <div class="form-control mt-6">
+            <button class="btn btn-primary bg-editcolor hover:bg-edithover text-white" type="submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+
     
 
-    <label >Firstname</label>
+    <!-- <label >Firstname</label>
     <input style="margin: 10px;" type="text" placeholder="Firt Name" name="firstname" required >  
     <br>
     <label>Lastname</label>
@@ -10,6 +46,7 @@
     <label>Email</label>
     <input style="margin: 10px;"  type="email" placeholder="Email" name="email" required >  
     <br>
-    <button style="margin: 10px;"  type="submit">Submit</button>
+    <button style="margin: 10px;"  type="submit">Submit</button> -->
    
-</form>
+
+<%- include("layouts/footer") -%>

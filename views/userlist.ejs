@@ -1,20 +1,49 @@
-<body>
-    <h1>Layout</h1>
-    <%= userList.length  %>
-    <a href="/insertuser"> Create User</a> 
 
-    
-    <ul>
-        <% userList.forEach((user) => { %>
-          <li>Email: <%= user.email %></li>
-          <li>Firstname: <%= user.firstname %></li>
-          <li>Lastname: <%= user.lastname %></li>
-          
-          <li><td><a href="/edituser/<%=user.id%>" class="edit-link" >Edit</a></td></li>
-          <li><td><a href="/deleteuser/<%=user.id%>" class="edit-link" >Delete</a></td></li>
-          
-        <% }) %>
-      </ul>
-    
-</body>
+<%- include("layouts/header") -%>
 
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+<div class="flex justify-center mt-4"> <!-- Center the button -->
+  <a href="/insertuser" class="btn btn-primary bg-editcolor hover:bg-edithover text-white font-bold py-2 px-4 rounded">Create User</a>
+</div>
+<div class="overflow-x-auto flex justify-center mx-auto mt-4">
+  
+  <table class="table w-3/4 border-separate rounded-lg">
+    <!-- head -->
+    <thead class="bg-neutral mb-3.5">
+      <tr>
+        <th class="p-5 text-lg text-tcolor">ID</th>
+        <th class="p-5 text-lg text-tcolor">First Name</th>
+        <th class="p-5 text-lg text-tcolor">Last Name</th>
+        <th class="p-5 text-lg text-tcolor">Email</th>
+        <th class="p-5 text-lg text-tcolor "style="width: 150px;">Edit/Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+      <% userList.forEach((user, index) => { %>
+        <tr class="<%= index % 2 === 0 ? 'bg-gray-100' : 'bg-white' %> hover:bg-gray-300">
+          <td class="border-gray-500"><%= user.id %></td>
+          <td class="border-gray-500"><%= user.firstname %></td>
+          <td class="border-gray-500"><%= user.lastname %></td>
+          <td class="border-gray-500"><%= user.email %></td>
+          <td class="border-gray-500 flex justify-center ">
+            <div>
+            <a href="/edituser/<%= user.id %>" class="bg-editcolor hover:bg-edithover text-white font-bold py-2 px-4 rounded edit-link "><i class="fa fa-pen"></i></a>
+            <a href="/deleteuser/<%= user.id %>" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded edit-link"><i class="fa fa-trash"></i></a>
+          </div>
+          </td>
+        </tr>
+        
+      <% }) %>
+      <td colspan="5" class="p-3  text-black text-center bg-success">No. of Users: <%= userList.length %></td>
+      
+    </tbody>
+  </table>
+</div>
+
+<%- include("layouts/footer") -%>

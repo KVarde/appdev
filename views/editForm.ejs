@@ -1,7 +1,43 @@
-<h2>Edit form</h2>
+<%- include("layouts/header") -%>
+<form action="/updateuser" method="POST">
+    <input type="hidden" name="id" value="<%=user.id  %>"> 
+<div class="hero max-h-screen bg-backg">
+    
+    <div class="hero-content flex-col justify-center mt-11">
+      <div class="card flex w-max max-w-screen-lg shadow-2xl bg-white">
+
+        <div class="card-body">
+            <h1 class="text-xl font-bold text-center">Edit Form</h1>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text text-slate-500">Firstname</span>
+            </label>
+            <input type="text" placeholder="firstname" class="bg-slate-200 input input-bordered" name="firstname" value="<%=user.firstname %>" required />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text text-slate-500">Lastname</span>
+            </label>
+            <input type="text" placeholder="lastname" class="bg-slate-200 input input-bordered" name="lastname" value="<%=user.lastname %>" required/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text text-slate-500">Email</span>
+            </label>
+            <input type="email" placeholder="email" class="bg-slate-200 input input-bordered" name="email" value="<%=user.email  %>" required/>
+          </div>
+          <div class="form-control mt-6">
+            <button class="btn btn-primary bg-editcolor hover:bg-edithover text-white" type="submit">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<!-- <h2>Edit form</h2>
 <form action="/updateuser" method="POST"> 
     <input type="hidden" name="id" value="<%=user.id  %>">  
     <input type="text" placeholder="firstname" name="firstname" value="<%=user.firstname %> ">  
     <input type="text" placeholder="lastname" name="lastname" value="<%=user.lastname %> ">  
     <input type="email" placeholder="Email" name="email" value="<%=user.email  %>">  
-<button type="submit">Update</button></form>
+<button type="submit">Update</button></form> -->
