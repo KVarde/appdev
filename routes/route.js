@@ -3,16 +3,17 @@ var router = express.Router();
 const users = require('../services/users')
 
 // GET users  
-router.get('/', async function (req, res, next) {
+router.get('/', async function(req, res, next) {
   try {
-    const page = parseInt(req.query.page) || 1; // Parse page from query parameter, default to 1
-    const data = await users.getMultipleUsers(page);
-    var userData = data.users;
-    res.render('userlist', { userList: userData, meta: data.meta });
+    data = await users.getMultipleUsers(req.query.page);
+    var userData = data.users
+    console.log(userData)
+    res.render('userlist', {userList: userData});
   } catch (err) {
-    console.error(`Error getting users: ${err.message}`);
+    console.error(`Error getting users `, err.message);
     next(err);
   }
+    
 });
 
 // Insert user form
